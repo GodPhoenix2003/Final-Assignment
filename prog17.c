@@ -5,11 +5,9 @@ void main(){
     int n;
     printf("\nEnter the number of columns: ");
     scanf("%d", &n);
-    int a=0;
     for(int i=0;i<n;i++){
-        for(int j=5;j>a;j--)
+        for(int j=5;j>i;j--)
             printf("%d ", j);
-        a++;
         printf("\n");
     }
 }
