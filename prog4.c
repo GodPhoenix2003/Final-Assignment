@@ -1,27 +1,29 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void main()
 {
-    int *a, n, tmp;
+    int *a, n;
     printf("\nEnter the size of the array: ");
     scanf("%d", &n);
+    a = malloc(n * sizeof(int));
     printf("\nEnter the array elements:\n");
     for (int i = 0; i < n; i++)
     {
-        scanf("%d", a+i);
+        scanf("%d", &a[i]);
     }
     printf("\nOriginal Array:-\n");
     for (int i = 0; i < n; i++)
-        printf("%d ", *(a + i));
+        printf("%d ", a[i]);
     for (int i = 0; i < n; i++)
     {
         for (int j = i + 1; j < n; j++)
         {
-            if (*(a + i) > *(a + j))
+            if (a[i] > a[j])
             {
-                tmp = *(a + i);
-                *(a + i) = *(a + j);
-                *(a + j) = tmp;
+                int tmp = a[i];
+                a[i] = a[j];
+                a[j] = tmp;
             }
             else
                 continue;
@@ -29,5 +31,5 @@ void main()
     }
     printf("\nSorted Array:-\n");
     for (int i = 0; i < n; i++)
-        printf("%d ", *(a + i));
+        printf("%d ", a[i]);
 }
